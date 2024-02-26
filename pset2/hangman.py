@@ -1,4 +1,5 @@
 from random import randint
+from states import *
 
 # Create the needed new word 
 def word():
@@ -17,95 +18,35 @@ def slots():
     slots = print('_' * len(hidden))
     return slots
 
-state0 = """
-
-   |-----------|
-   |           |
-   |            
-   |
-   |
-   |
- _____
-        """
-
-state1 = """
-
-   |-----------|
-   |           ◯
-   |            
-   |
-   |
-   |
- _____
-         """
-
-state2 = """
-   |-----------|
-   |           ◯
-   |           | 
-   |
-   |
-   |
- _____
-
-         """
-
-state3 = """
-   |-----------|
-   |           ◯
-   |          /| 
-   |
-   |
-   |
- _____
-
-         """
-
-state4 = r"""
-   |-----------|
-   |           ◯
-   |          /|\
-   |
-   |
-   |
- _____
-
-         """
-
-state5 = r"""
-   |-----------|
-   |           ◯
-   |          /|\
-   |          /
-   |
-   |
- _____
+############################################################
+# Here they end the static values, and now we will compare #
+############################################################
 
 
-         """
+def validate(char):
+	if len(char) == 1 and char.isalpha():
+		return True
+	else:
+		return False
+	
+def search(char):
+	singleton = validate(char)
+	wiggy = word()
+	if singleton == True:
+		return wiggy.count(char)
+	else:
+		print("you should provide a single letter, case insensitive")
 
-state6 = r"""
-   |-----------|
-   |           ⨯
-   |          /|\
-   |          / \
-   |
-   |
- _____
+oldy = word()
+current = []
 
-
-         """
-
-def hanged():
-    state = 0
-    """
-    if correct:
-        state += 1
-    else:
-        pass
-    """
+def dissolve(char):
+	oldy.index(char)
 
 def main():
-    guess = input("$: ")
+	slots()
+	guess = input("$: ")
+	search(guess)
 
-print(state6)
+main()
+
