@@ -6,7 +6,7 @@ from validate import *
 
 # Create the needed new word 
 word = list(linecache.getline(('words.txt'), randint(1, 55900)).strip())
-slot = '_' * len(word)
+slot = list('_' * len(word))
 hanged = state0
 ############################################################
 # Here they end the static values, and now we will compare #
@@ -21,13 +21,18 @@ def guess():
 
 def destiny():
 	lucky = guess()
-	for (i,j) in zip(word,slot):
-		if lucky == i:
-			slot[j] == lucky
+	for l in range(len(word)):
+		if lucky == word[l]:
+			slot[l] == lucky
 		else:
 			pass
+	print(slot)
 
 def main():
-	destiny()
+	while list(slot) != word:
+		destiny()
+	else:
+		print("yay, you have won :)")
 
 main()
+
