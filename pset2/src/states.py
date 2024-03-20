@@ -77,13 +77,13 @@ state6 = r"""
 
          """
 
-dict_states = {"0":"state0",
-               "1":"state1",
-               "2":"state2",
-               "3":"state3",
-               "4":"state4",
-               "5":"state5",
-               "6":"state6",
-               }
- 
-print(dict_states[1])
+statedict = {}
+
+statedict["0"] = state0
+statedict["1"] = state1
+statedict["2"] = state2
+statedict["3"] = state3
+statedict["4"] = state4
+statedict["5"] = state5
+statedict["6"] = state6
+

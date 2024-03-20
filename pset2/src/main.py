@@ -3,17 +3,21 @@ import sys
 from states import *
 from random import randint
 from control import *
-
 # Create the needed new word
 
 word = list(linecache.getline(
     ('../resources/words.txt'), randint(1, 55900)).strip())
 slot = list('_' * len(word))
-hanged = state0
-number = 0
+hanged = 0
+
 ############################################################
 # Here they end the static values, and now we will compare #
 ############################################################
+
+def punish():
+    global statedict
+    hanged += 1
+    print(statedict[hanged])
 
 
 def destiny(a):
@@ -21,7 +25,7 @@ def destiny(a):
         if a == word[i]:
             slot[i] = a
         else:
-            pass
+            punish()
 
     print(''.join(slot))
 
